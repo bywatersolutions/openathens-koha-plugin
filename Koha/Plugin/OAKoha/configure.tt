@@ -26,10 +26,12 @@
     </div>
     <h3>Koha: OpenAthens: Configuration</h3>
 <!-- Notice our form here has no 'action', this is good, it means that our forms will always get passed back to 'plugins/run.pl'. You could hard code it instead if you prefer -->
-    <form method="get">
+    <form method="post">
+        [% INCLUDE 'csrf-token.inc' %]
         <!-- Always pass these two parameters so the plugin system knows what to execute! -->
-        <input type="hidden" name="class" value="[% CLASS %]"/>
+        <input type="hidden" name="class"  value="[% CLASS %]"/>
         <input type="hidden" name="method" value="[% METHOD %]"/>
+        <input type="hidden" name="op"     value="cud-save-config"/>
 
         <table id="oa-config" width="100%" border="0" cellspacing="2" cellpadding="2">
           <tr>
